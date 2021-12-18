@@ -7,6 +7,15 @@ User.hasMany(Project, {
   onDelete: "CASCADE",
 });
 
+// User.hasMany(Post, {
+//   foreignKey: "user_id",
+//   onDelete: "CASCADE",
+// });
+
+Project.belongsTo(User, {
+  foreignKey: "user_id",
+});
+
 User.hasMany(Post, {
   foreignKey: "user_id",
   onDelete: "CASCADE",
