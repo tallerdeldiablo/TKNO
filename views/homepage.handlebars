@@ -1,49 +1,69 @@
-<!-- Loop over each object in the projects array -->
-{{#each projects as |project|}}
-  <div class="row mb-4 project">
-    <div class="col">
 
+ <h2>YOUR HOMEPAGE, {{user.name}}!</h2>
 
-  </div>
-{{/each}}
-{{#each projects as |project|}}
+{{#each posts as |post|}}
 <div class="accordion" id="accordionExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
       
-        <a href="/project/{{project.id}}">{{project.name}}</a>
+        <a href="/post/{{post.id}}">{{post.name}}</a>
       </button>
+  
     </h2>
-      <h2>
-        <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-
-        <a href="/project/{{project.id}}">{{project.name}}</a>
-      </h2>
-      Created by     {{project.user.name}}
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+      
+        <a href="/post/{{post.id}}">{{post.name}}</a>
+      </button>
+      Created by     {{post.user.name}}
     
         on
-        {{format_date project.date_created}}</p>
+        {{format_date post.date_created}}</p>
+           {{#if logged_in}}
+          <p>
+        coments here
+        <div class="form-floating">
+  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+  <label for="floatingTextarea2">Comments</label>
+</div>
+<button type="button" class="btn btn-primary">Primary</button>
+      </p>
+
+            {{else}}
+         <p>
+       login for coment
+       <div class="form-floating">
+  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+  <label for="floatingTextarea2">Comments</label>
+  <button type="button" class="btn btn-secondary">Secondary</button>
+
+
+</div>
+      </p>
+            {{/if}}
+            
       
         <span for="img" aria-label="money">💲</span>
         <!-- Pass needed_funding value to the helper function -->
         <span class="dollar-amount">{{format_amount
-            project.needed_funding
+            post.needed_funding
           }}</span>
         needed!
       </p>
          <p>
-        {{project.description}}
+        {{post.description}}
       </p>
 
     </div>
     
     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-         {{project.description}} </div>
+         {{post.description}} </div>
     </div>
   </div>
 
 </div>
 
 {{/each}}
+
+       
