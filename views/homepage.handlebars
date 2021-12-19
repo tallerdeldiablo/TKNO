@@ -2,6 +2,19 @@
 {{#each projects as |project|}}
   <div class="row mb-4 project">
     <div class="col">
+
+
+  </div>
+{{/each}}
+{{#each projects as |project|}}
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+      
+        <a href="/project/{{project.id}}">{{project.name}}</a>
+      </button>
+    </h2>
       <h2>
         <!-- Call helper function with triple brackets to render the emoji span as HTML -->
 
@@ -24,18 +37,7 @@
       </p>
 
     </div>
-
-  </div>
-{{/each}}
-{{#each projects as |project|}}
-<div class="accordion" id="accordionExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-      
-        <a href="/project/{{project.id}}">{{project.name}}</a>
-      </button>
-    </h2>
+    
     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
       <div class="accordion-body">
          {{project.description}} </div>
