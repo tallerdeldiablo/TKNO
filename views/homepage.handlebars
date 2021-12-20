@@ -7,15 +7,15 @@
     <h2 class="accordion-header" id="headingOne">
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
       
-        <a href="/post/{{post.id}}">{{post.name}}</a>
+        <a href="/post/{{post.id}}">{{post.title}}</a>
       </button>
   
     </h2>
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
       
-        <a href="/post/{{post.id}}">{{post.name}}</a>
+        <a href="/post/{{post.id}}">{{post.title}}</a>
       </button>
-      Created by     {{post.user.name}}
+      Created by     {{post.user.title}}
     
         on
         {{format_date post.date_created}}</p>
@@ -26,39 +26,26 @@
   <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
   <label for="floatingTextarea2">Comments</label>
 </div>
-<button type="button" class="btn btn-primary">Primary</button>
-      </p>
+  <button type="button" class="btn btn-primary">Primary</button>
+        </p>
 
-            {{else}}
-         <p>
-       login for coment
-       <div class="form-floating">
-  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-  <label for="floatingTextarea2">Comments</label>
-  <button type="button" class="btn btn-secondary">Secondary</button>
+              {{else}}
+          <p>
+        login for coment
+        <div class="form-floating">
+    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+    <label for="floatingTextarea2">Comments</label>
+    <button type="button" class="btn btn-secondary">Secondary</button>
 
 
-</div>
       </p>
             {{/if}}
             
-      
-        <span for="img" aria-label="money">💲</span>
-        <!-- Pass needed_funding value to the helper function -->
-        <span class="dollar-amount">{{format_amount
-            post.needed_funding
-          }}</span>
-        needed!
-      </p>
-         <p>
-        {{post.description}}
-      </p>
 
-    </div>
     
     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-         {{post.description}} </div>
+         {{post.content}} </div>
     </div>
   </div>
 
