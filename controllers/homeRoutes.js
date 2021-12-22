@@ -18,7 +18,7 @@ router.get("/", async (req, res) => {
     const posts = postData.map((post) => post.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    console.log(posts)
+    console.log(posts);
     res.render("homepage", {
       posts,
       logged_in: req.session.logged_in,
@@ -28,7 +28,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/project/:id", async (req, res) => {
+router.get("/edit/:id", async (req, res) => {
   try {
     const projectData = await Project.findByPk(req.params.id, {
       include: [
@@ -41,7 +41,7 @@ router.get("/project/:id", async (req, res) => {
 
     const project = projectData.get({ plain: true });
 
-    res.render("project", {
+    res.render("edit", {
       ...project,
       logged_in: req.session.logged_in,
     });
@@ -51,7 +51,7 @@ router.get("/project/:id", async (req, res) => {
 });
 
 // Use withAuth middleware to prevent access to route
-router.get("/project", withAuth, async (req, res) => {
+router.get("/edit", withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
@@ -61,7 +61,7 @@ router.get("/project", withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
 
-    res.render("project", {
+    res.render("edit", {
       ...user,
       logged_in: true,
     });
@@ -95,25 +95,7 @@ router.get("/post/:id", async (req, res) => {
   }
 });
 
-// Use withAuth middleware to prevent access to route
-router.get("/post", withAuth, async (req, res) => {
-  try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ["password"] },
-      include: [{ model: Post }],
-    });
-
-    const user = userData.get({ plain: true });
-
-    res.render("post", {
-      ...user,
-      logged_in: true,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//*----
 
 //*----------------------
 //*--------
@@ -130,6 +112,76 @@ router.get("/profile", withAuth, async (req, res) => {
     const user = userData.get({ plain: true });
 
     res.render("profile", {
+      ...user,
+      logged_in: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//----*--------
+
+//*----------------------
+//*--------DASHBOARD
+
+// Use withAuth middleware to prevent access to route
+router.get("/dashboard", withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ["password"] },
+      include: [{ model: Project }],
+    });
+
+    const user = userData.get({ plain: true });
+
+    res.render("dashboard", {
+      ...user,
+      logged_in: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+router.get("/dashboard", withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ["password"] },
+      include: [{ model: Project }],
+    });
+
+    const user = userData.get({ plain: true });
+
+    res.render("dashboard/edit", {
+      ...user,
+      logged_in: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//----*--------
+
+//*----
+
+//*---------NEW-------
+//*--------
+
+// Use withAuth middleware to prevent access to route
+router.get("/new", withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ["password"] },
+      include: [{ model: Project }],
+    });
+
+    const user = userData.get({ plain: true });
+
+    res.render("new", {
       ...user,
       logged_in: true,
     });

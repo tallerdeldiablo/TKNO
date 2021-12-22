@@ -1,3 +1,43 @@
+<div class="text-center">
+  <h2>COMMENTS ONLY if loged</h2>
+  <h2>{{title}}</h2>
+  <p>{{{get_emoji}}}</p>
+  <p>{{content}}</p>
+  <p>Created by {{user.name}} on {{format_date date_created}}</p>
+  <p>
+
+    <span class="dollar-amount">{{format_amount needed_funding}}</span>
+    needed
+  </p>
+  <p>
+    <button class="btn btn-primary">Btn!</button>
+
+ 
+         {{#if logged_in}}
+            <p>
+        login for coment
+        <div class="form-floating">
+    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+    <label for="floatingTextarea2">Comments</label>
+    <button type="button" class="btn btn-secondary">Secondary</button>
+
+
+      </p>
+
+              {{else}}
+      <p>
+        coments here
+        <div class="form-floating">
+  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+  <label for="floatingTextarea2">Comments</label>
+</div>
+  <button type="button" data-id="{{project.id}}" class="btn btn-primary"> save comment </button>
+
+        </p>  
+            {{/if}}
+  </p>
+</div>
+
 {{!-- <div class="text-center">
   <h2>{{name}}</h2>
   <p>{{{get_emoji}}}</p>
