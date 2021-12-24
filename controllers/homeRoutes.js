@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Project, Post, User } = require("../models");
+const { Project, Post, User, Comment } = require("../models");
 const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
@@ -70,8 +70,8 @@ router.get("/edit", withAuth, async (req, res) => {
   }
 });
 
-/*------------------**---------
- *--------------------- *-*---   */
+/*-----------------------**---------
+ *--------------------- *POST*---   */
 
 router.get("/post/:id", async (req, res) => {
   try {
@@ -81,11 +81,16 @@ router.get("/post/:id", async (req, res) => {
           model: User,
           attributes: ["name"],
         },
+        {
+          model: Comment,
+          attributes: ["content", "user_id"],
+        },
       ],
+      //inckude comment
     });
 
     const post = postData.get({ plain: true });
-
+    console.log(post);
     res.render("post", {
       ...post,
       logged_in: req.session.logged_in,
@@ -96,7 +101,61 @@ router.get("/post/:id", async (req, res) => {
 });
 
 //*----
+/*-----------------------**---------
+ *--------------------- *COMMENT*---   */
 
+router.get("/comment", async (req, res) => {
+  try {
+    // Get all projects and JOIN with user data
+    const commentData = await Comment.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ["name"],
+        },
+      ],
+    });
+
+    // Serialize data so the template can read it
+    const comments = commentData.map((comment) => comment.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    console.log(comments);
+    res.render("comment", {
+      comments,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/comment/:id", async (req, res) => {
+  try {
+    const commentData = await Comment.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ["name"],
+        },
+        {
+          model: Post,
+          attributes: ["content", "user_id"],
+        },
+      ],
+      //inckude comment
+    });
+
+    const comment = commentData.get({ plain: true });
+    console.log(comment);
+    res.render("comment", {
+      ...comment,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 //*----------------------
 //*--------
 
