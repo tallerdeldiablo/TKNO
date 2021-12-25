@@ -7,7 +7,7 @@ const newFormHandler = async (event) => {
   // const needed_funding = document
   //   .querySelector("#project-funding")
   //   .value.trim();
-  const content = document.querySelector("#project-desc").value.trim();
+  const content = document.querySelector("#comment-desc").value.trim();
 
   if (content) {
     const response = await fetch(`/api/comments`, {
@@ -53,16 +53,16 @@ const edtButtonHandler = async (event) => {
     if (response.ok) {
       document.location.replace("/profile");
     } else {
-      alert("Failed to update project");
+      alert("Failed to update comment");
     }
   }
 };
 //-----**---
 
 document
-  .querySelector(".new-project-form")
+  .querySelector(".new-comment-form")
   .addEventListener("submit", newFormHandler);
 
-document.querySelector(".delete").addEventListener("click", delButtonHandler);
+// document.querySelector(".delete").addEventListener("click", delButtonHandler);
 
 // document.querySelector(".edit").addEventListener("click", edtButtonHandler);
