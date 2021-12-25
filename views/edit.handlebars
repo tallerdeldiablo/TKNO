@@ -1,27 +1,35 @@
-<div class="text-center">
-  <h2>EDIT</h2>
-  <h2>{{title}}</h2>
-  {{!-- <p>{{{get_emoji}}}</p> --}}
-  {{!-- <p>{{content}}</p>
- --}}
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
-  <p>
-
-    <span class="dollar-amount">{{content}}</span>
-  </p>
-  <div class="edit">
-    <button
-      class="btn btn-sm btn-secondary"
-      data-id="{{project.id}}"
-    >EDit</button>
-  </div>
-  <div class="delete">
-    <button
-      class="btn btn-sm btn-danger"
-      data-id="{{project.id}}"
-    >DELETE</button>
-  </div>
+<div class="col-auto">
+  <h2> {{name}}! Edit new Post</h2>
 
 </div>
 
-<script src="./js/profile-ed.js"></script>
+<div class="col-md-6">
+  <h3>Create a New Post:</h3>
+
+  <form class="form new-project-form">
+    <div class="form-group">
+      <label for="project-name">Post Title:</label>
+      <input
+        class="form-input"
+        type="text"
+        id="project-name"
+        name="project-name"
+        value="{{title}}"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="project-desc">Content:</label>
+      <textarea
+        class="form-input"
+        id="project-desc"
+        name="project-desc"
+      >{{content}}</textarea>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+  </form>
+</div>
+
+<script src="./js/profile-edit-post.js"></script>

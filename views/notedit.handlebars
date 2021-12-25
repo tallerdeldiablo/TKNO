@@ -1,0 +1,82 @@
+<div class="text-center">
+  <h2>EDIT</h2>
+  <h2>{{title}}</h2>
+  {{!-- <p>{{{get_emoji}}}</p> --}}
+  {{!-- <p>{{content}}</p>
+ --}}
+  {{!-- <p>Created by {{user.name}} on {{format_date date_created}}</p> --}}
+
+  <div class="edit">
+    <button
+      type="submit"
+      class="btn btn-sm btn-secondary"
+      data-id="{{id}}"
+    >EDit{{id}}</button>
+  </div>
+  <div class="delete">
+    <button
+      class="btn btn-sm btn-danger"
+      data-id="{{project.id}}"
+    >DELETE</button>
+  </div>
+
+</div>
+{{! 
+original code }}
+
+<div class="row mt-4">
+  <div class="col-md-6">
+    <h3>Edita Post:</h3>
+
+    <form class="form new-project-form">
+      <div class="form-group">
+        <label for="project-name">p name:</label>
+        <input
+          class="form-input"
+          type="text"
+          id="project-name"
+          name="project-name"
+          value="{{title}}"
+        />
+      </div>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Content</span>
+        </div>
+        <textarea
+          class="form-control"
+          id="project-desc"
+          name="project-desc"
+          aria-label="With textarea"
+        >
+          {{content}}</textarea>
+      </div>
+      {{! 
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Create</button>
+      </div> }}
+    </form>
+  </div>
+
+  {{!-- {{#if projects.length}}
+    <div class="col-md-6 project-list">
+      <h3>Current Projects:</h3>
+
+      {{#each projects as |project|}}
+        <div class="row mb-2">
+          <div class="col-md-8">
+            <h4><a href="/project/{{project.id}}">{{project.name}}</a></h4>
+          </div>
+          <div class="col-md-4">
+            <button
+              class="btn btn-sm btn-danger"
+              data-id="{{project.id}}"
+            >DELETdE</button>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  {{/if}} --}}
+</div>
+
+<script src="./js/profile-ed.js"></script>

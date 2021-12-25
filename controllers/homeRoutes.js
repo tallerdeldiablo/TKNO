@@ -30,7 +30,7 @@ router.get("/", async (req, res) => {
 
 router.get("/edit/:id", async (req, res) => {
   try {
-    const projectData = await Project.findByPk(req.params.id, {
+    const projectData = await Post.findByPk(req.params.id, {
       include: [
         {
           model: User,
@@ -56,7 +56,7 @@ router.get("/edit", withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
-      include: [{ model: Project }],
+      include: [{ model: Post }],
     });
 
     const user = userData.get({ plain: true });
@@ -190,11 +190,11 @@ router.get("/dashboard", withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
-      include: [{ model: Project }],
+      include: [{ model: Post }],
     });
 
     const user = userData.get({ plain: true });
-
+    console.log(user);
     res.render("dashboard", {
       ...user,
       logged_in: true,
@@ -208,7 +208,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
-      include: [{ model: Project }],
+      include: [{ model: Post }],
     });
 
     const user = userData.get({ plain: true });

@@ -2,16 +2,16 @@
   <h2>YOUR DASHBOARD, {{name}}!</h2>
 </div>
 
-{{#if projects.length}}
+{{#if posts.length}}
   <div class="col-md-12 project-list">
 
     <h3>Current Projects:</h3>
 
-    {{#each projects as |project|}}
+    {{#each posts as |post|}}
       <div class="row mb-2">
         <div class="col-md-8">
-          <h4><a href="/edit/{{project.id}}">{{project.title}}</a></h4>
-          <h4>{{project.content}}</h4>
+          <h4><a href="/edit/{{post.id}}">{{post.title}}</a></h4>
+          <h4>{{post.content}}</h4>
         </div>
 
         {{#if logged_in}}

@@ -1,4 +1,4 @@
-const editFormHandler = async (event) => {
+const newFormHandler = async (event) => {
   event.preventDefault();
 
   const title = document.querySelector("#project-name").value.trim();
@@ -8,8 +8,8 @@ const editFormHandler = async (event) => {
   const content = document.querySelector("#project-desc").value.trim();
 
   if (title && content) {
-    const response = await fetch(`/api/projects`, {
-      method: "UPDATE",
+    const response = await fetch(`/api/posts`, {
+      method: "POST",
       body: JSON.stringify({ title, content }),
       headers: {
         "Content-Type": "application/json",
@@ -17,7 +17,7 @@ const editFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("/profile");
+      document.location.replace("/dashboard");
     } else {
       alert("Failed to create project");
     }
@@ -28,7 +28,7 @@ const delButtonHandler = async (event) => {
   if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");
 
-    const response = await fetch(`/api/projects/${id}`, {
+    const response = await fetch(`/api/posts/${id}`, {
       method: "DELETE",
     });
 
@@ -39,28 +39,11 @@ const delButtonHandler = async (event) => {
     }
   }
 };
-//*--edtButtonHandler
-const edtButtonHandler = async (event) => {
-  if (event.target.hasAttribute("data-id")) {
-    const id = event.target.getAttribute("data-id");
-
-    const response = await fetch(`/api/projects/${id}`, {
-      method: "UPDATE",
-    });
-
-    if (response.ok) {
-      document.location.replace("/profile");
-    } else {
-      alert("Failed to update project");
-    }
-  }
-};
-//-----**---
 
 document
   .querySelector(".new-project-form")
-  .addEventListener("submit", editFormHandler);
+  .addEventListener("submit", newFormHandler);
 
-document.querySelector(".delete").addEventListener("click", delButtonHandler);
-
-// document.querySelector(".edit").addEventListener("click", edtButtonHandler);
+document
+  .querySelector(".project-list")
+  .addEventListener("click", delButtonHandler);
