@@ -8,28 +8,24 @@
 
   <form class="form new-project-form">
     <div class="form-group">
-      <label for="project-name">Post Title:</label>
-      <input
-        class="form-input"
-        type="text"
-        id="project-name"
-        name="project-name"
-        value="{{title}}"
-      />
+      title:
+      <br />
+      <input id="title" value="{{title}}" />
     </div>
 
-    <div class="form-group">
-      <label for="project-desc">Content:</label>
+    <div class="form-group">Content:<br />
+      <label for="project-desc"></label>
       <textarea
         class="form-input"
-        id="project-desc"
+        id="post-desc"
         name="project-desc"
       >{{content}}</textarea>
     </div>
-    <div class="form-group">
-      <button type="submit" class="btn btn-primary">Create</button>
+    <div class="project-list">
+      <button type="submit" class="btn btn-primary">laput</button>
+      <button id="postid" type="sumit" value="{{id}}"></button>
     </div>
   </form>
 </div>
 
-<script src="./js/profile-edit-post.js"></script>
+<script src="/js/profile-edit.js"></script>

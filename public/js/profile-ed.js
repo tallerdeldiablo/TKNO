@@ -45,7 +45,7 @@ const edtButtonHandler = async (event) => {
     const id = event.target.getAttribute("data-id");
 
     const response = await fetch(`/api/projects/${id}`, {
-      method: "UPDATE",
+      method: "PUT",
     });
 
     if (response.ok) {
