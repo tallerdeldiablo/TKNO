@@ -1,10 +1,7 @@
-<div class="col-auto">
-  <h3> Edit Post</h3>
+<div>
+  {{! <h3> Edit Post</h3>
 
-</div>
-
-<div class="col-md-6">
-  <h3>Create a New Post:</h3>
+  <h3>Create a New Post:</h3> }}
 
   <form class="form new-project-form">
     <div class="form-group">
@@ -15,10 +12,11 @@
 
     <div class="form-group">Content:<br />
       <label for="project-desc"></label>
+
       <textarea
-        class="form-input"
+        class="form-control"
         id="post-desc"
-        name="project-desc"
+        rows="3"
       >{{content}}</textarea>
     </div>
     <div class="project-list">
@@ -30,12 +28,16 @@
         class="btn btn-danger"
         id="postid"
         type="sumit"
+        rows="3"
         value="{{id}}"
       >Delete</button>
 
     </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Example textarea</label>
 
+    </div>
   </form>
-</div>
 
+</div>
 <script src="/js/post-edit.js"></script>

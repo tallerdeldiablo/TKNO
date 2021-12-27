@@ -8,7 +8,7 @@ const editButtonHandler = async (event) => {
   console.log(title);
   console.log(id);
   console.log(content);
-  alert(title + "Edited");
+  alert("Edited");
   if (title && content) {
     const response = await fetch(`/api/posts/${id}`, {
       method: "PUT",

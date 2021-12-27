@@ -19,7 +19,7 @@ const newFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace("/dashboard");
     } else {
-      alert("Failed to create project");
+      alert("Failed to create post");
     }
   }
 };
@@ -41,7 +41,7 @@ const newFormHandler = async (event) => {
 // };
 
 document
-  .querySelector(".new-project-form")
+  .querySelector(".btn-primary")
   .addEventListener("click", newFormHandler);
 
 // document

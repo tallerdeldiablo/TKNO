@@ -1,83 +1,89 @@
 <div class="text-center">
-  {{!-- <h2 >COMMENTS ONLY if loged </h2> --}}
+  {{! <h2 >COMMENTS ONLY if loged </h2> }}
 
   {{!-- <p>Created by {{name}} on {{format_date date_created}}</p> --}}
-  
-      <div class="card ">
 
-         
-            <div class="card-header">
-                <div class="hstack gap-3">
-                  <div class="bg-light border">   {{title}}</div>
-                  <div class="bg-light border ms-auto">Created by {{user.name}}</div>
-                  <div class="vr"></div>
-                  <div class="bg-light border"> on
-                      {{format_date date_created}}</div>
-              </div>
-     </div>
-            <div class="card-body">
+  <div class="card">
 
-              <p class="card-text">  {{content}} </p>
+    <div class="card-header alert-primary">
+      <div class="hstack gap-3">
+        <div class="bg-light border"> {{title}}</div>
+        <div class="bg-light border ms-auto">Created by {{user.name}}</div>
+        <div class="vr"></div>
+        <div class="bg-light border">
+          on
+          {{format_date date_created}}</div>
+      </div>
+    </div>
+    <div class="card-body">
 
-            </div>
+      <p class="card-text"> {{content}} </p>
+
+    </div>
   </div>
 
-{{!-- comments --}}    {{!-- <p>Created by {{name}} on {{format_date date_created}}</p> --}}
-{{!-- {{comment.content}}</p> --}}
-{{#each comments as |comment|}}
-
- <div class="row justify-content-md-center">
-    <div class="col col-lg-2">
-  
+  {{! comments }}
+  {{!-- <p>Created by {{name}} on {{format_date date_created}}</p> --}}
+  {{!-- {{comment.content}}</p> --}}
+  {{#each comments as |comment|}}
+    <div class="card">
+      <div class="card-header">
+        Comment
+      </div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p>{{comment.content}}</p>
+          <footer class="blockquote-">
+            {{!-- <p class="card-text">     <p>Created by {{this.user.name}} </p> --}}<cite
+              title="Source Title"
+            > {{! on    </p> }}</cite></footer>
+        </blockquote>
+      </div>
     </div>
-    <div class="col-md-auto">
-     
- <div class="card text-white bg-dark mb-4" style="max-width: 58rem;">
-  <div class="card-header">comments </div>
-  <div class="card-body">
-  
-    <p class="card-text">{{comment.content}}</p>
-  </div>
-
-</div>
-  
-    </div>
-    <div class="col col-lg-2">
-  
-    </div>
+    {{! end }}
   {{/each}}
 
-          {{#if logged_in}}
-       <div class="form-floating">
-      <h4>Create a COMMENT:</h4>
-           <form class="form new-comment-form">
+  {{#if logged_in}}
+    <div class="form-floating">
+      <div class="alert alert-dark" role="alert">
 
-            <div  hidden class="form-group">
-              <label  for="project-name">post id:</label>{{id}}
-              <input class="form-input" type="text" id="project-name" name="project-name" data-id="{{id}}"/>
-            </div>
+      </div>
 
-       
-            <div class="form-group">
-              <label for="project-desc">content:</label>
-              <textarea
-                class="form-control"  id="comment-desc"  name="project-desc"   ></textarea>
-            </div>
-            <div class="form-group">
-              <button type="submit" class="btn btn-primary">Create</button>
-            </div>
-          </form>
-      
-  </div>
-              {{else}}
-       <p> login to comment </p>
-            {{/if}}
+      <form class="form new-comment-form">
 
+        <div hidden class="form-group">
+          <label for="project-name">post id:</label>{{id}}
+          <input
+            class="form-input"
+            type="text"
+            id="project-name"
+            name="project-name"
+            data-id="{{id}}"
+          />
+        </div>
 
+        <div class="form-group">
+          <label for="project-desc">content:</label>
+          <textarea
+            class="form-control"
+            id="comment-desc"
+            name="project-desc"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <button
+            type="submit"
+            class="btn btn-primary btn-lg btn-block"
+          >Submit</button>
+        </div>
+      </form>
+
+    </div>
+  {{else}}
+    <p> login to comment </p>
+  {{/if}}
 
   {{!-- <button type="button" data-id="{{project.id}}" class="btn btn-primary"> save comment </button> --}}
-
-
-
+</div>
 
 <script src="/js/profile-new.js"></script>
