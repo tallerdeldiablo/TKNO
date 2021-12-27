@@ -1,12 +1,12 @@
 [
   {
-    "title": "Post 1",
-    "content": "you notifications whenever a concert is playing in your area.",
+    "title": "Why MVC is so important",
+    "content": "MVC allows developers to maintain a true separation of concerns, devising their code between the Model later for data, the View layer for design, and the Controller layer for application logic.",
      "user_id" : 1 
   },
   {
-    "title": "The Ultimate Tech Quiz",
-    "content": "A web app that will give users 10 new technical questions each day and track their progress in things like programming, cybersecurity, database architecture, and more!",
+    "title": "Authentication vs Authorization",
+    "content": "There  is a difference between authentication and authorization. Authentication mea",
     "user_id" : 2
   },
   {

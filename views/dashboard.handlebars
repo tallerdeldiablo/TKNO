@@ -1,32 +1,44 @@
 <div class="col-auto">
-  <h2>YOUR DASHBOARD, {{name}}!</h2>
+  <h4>YOUR DASHBOARD, {{name}}!</h4>
 </div>
 
 {{#if posts.length}}
-  <div class="col-md-12 project-list">
 
-    <h3>Current Projects:</h3>
 
+
+
+
+ 
     {{#each posts as |post|}}
-      <div class="row mb-2">
-        <div class="col-md-8">
-          <h4><a href="/edit/{{post.id}}">{{post.title}}</a></h4>
-          <h4>{{post.content}}</h4>
-        </div>
+   
+  
+
+
+
+<div class="row justify-content-md-center">
+    <div class="col col-lg-1">
+
+    </div>
+    <div class="col">
+    <div class="alert alert-success" 
+        <h5><a href="/edit/{{post.id}}">{{post.title}}</a></h5>
+        
+      </div>
+          <P>{{post.content}}</P>
+    </div>
+    <div class="col col-lg-1">
+  
+    </div>
+
 
         {{#if logged_in}}
           <p>
             login for coment
-
           </p>
 
-        {{else}}
-          <a href="/post/{{post.id}}">{{post.title}}
-            
         {{/if}}
 
       </div>
     {{/each}}
   </div>
 {{/if}}
-

@@ -1,5 +1,5 @@
 <div class="col-auto">
-  <h2> {{name}}! Edit new Post</h2>
+  <h3> Edit Post</h3>
 
 </div>
 
@@ -22,10 +22,20 @@
       >{{content}}</textarea>
     </div>
     <div class="project-list">
-      <button type="submit" class="btn btn-primary">laput</button>
-      <button id="postid" type="sumit" value="{{id}}"></button>
+      <button type="submit" class="btn btn-primary">Edit</button>
+
     </div>
+    <div class="delete-post">
+      <button
+        class="btn btn-danger"
+        id="postid"
+        type="sumit"
+        value="{{id}}"
+      >Delete</button>
+
+    </div>
+
   </form>
 </div>
 
-<script src="/js/profile-edit.js"></script>
+<script src="/js/post-edit.js"></script>

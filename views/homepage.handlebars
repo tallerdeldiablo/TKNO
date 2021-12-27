@@ -1,40 +1,26 @@
-<h2>YOUR HOMEPAGE, {{user.name}}!</h2>
+{{! <h2>YOUR HOMEPAGE!</h2> }}
 
 {{#each posts as |post|}}
-  <div class="accordion" id="accordionExample">
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingOne">
-        <button
-          class="accordion-button border-dark"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#collapseOne"
-          aria-expanded="true"
-          aria-controls="collapseOne"
-        >
-          <a href="/post/{{post.id}}">{{post.title}}</a>
-        </button>
 
-      </h2>
-      Created by
-      {{post.user.name}}
-      on
-      {{format_date post.date_created}}
+  <div class="card">
 
-      <div
-        id="collapseOne"
-        class="accordion-collapse collapse show"
-        aria-labelledby="headingOne"
-        data-bs-parent="#accordionExample"
-      >
-        <div class="accordion-body">
-          {{post.content}}
-        </div>
+    <div class="card-header alert-primary">
+      <div class="hstack gap-3">
+        <div class="border">
+          <a href="/post/{{post.id}}">{{post.title}}</a></div>
+        <div class="bg-light border ms-auto">Created by {{user.name}}</div>
+        <div class="vr"></div>
+        <div class="bg-light border">
+          on
+          {{format_date date_created}}</div>
       </div>
     </div>
+    <div class="card-body">
 
+      <p class="card-text"> {{content}} </p>
+
+    </div>
   </div>
-
 {{/each}}
 
 <div class="col-md-6">
