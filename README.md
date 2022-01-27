@@ -22,6 +22,7 @@ If your README is long, add a table of contents to make it easy for users to fin
 What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
 
 ## Usage
+https://user-images.githubusercontent.com/57916204/151289800-1f771e03-62ed-4e52-8ee5-ae8704bbaa2e.png
 
 Provide instructions and examples for use. Include screenshots as needed.
 
@@ -36,7 +37,7 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 ## License
 
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
+
 
 ---
 
