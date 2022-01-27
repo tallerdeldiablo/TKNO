@@ -1,10 +1,9 @@
 <div class="text-center">
   <h2>EDIT</h2>
+
   <h2>{{title}}</h2>
-  {{!-- <p>{{{get_emoji}}}</p> --}}
-  {{!-- <p>{{content}}</p>
- --}}
-  {{!-- <p>Created by {{user.name}} on {{format_date date_created}}</p> --}}
+
+
 
   <div class="edit">
     <button
@@ -21,8 +20,7 @@
   </div>
 
 </div>
-{{! 
-original code }}
+
 
 <div class="row mt-4">
   <div class="col-md-6">
@@ -51,32 +49,11 @@ original code }}
         >
           {{content}}</textarea>
       </div>
-      {{! 
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
-      </div> }}
+
     </form>
   </div>
 
-  {{!-- {{#if projects.length}}
-    <div class="col-md-6 project-list">
-      <h3>Current Projects:</h3>
 
-      {{#each projects as |project|}}
-        <div class="row mb-2">
-          <div class="col-md-8">
-            <h4><a href="/project/{{project.id}}">{{project.name}}</a></h4>
-          </div>
-          <div class="col-md-4">
-            <button
-              class="btn btn-sm btn-danger"
-              data-id="{{project.id}}"
-            >DELETdE</button>
-          </div>
-        </div>
-      {{/each}}
-    </div>
-  {{/if}} --}}
 </div>
 
 <script src="./js/profile-ed.js"></script>

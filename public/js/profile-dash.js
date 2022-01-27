@@ -2,9 +2,7 @@ const newFormHandler = async (event) => {
   event.preventDefault();
 
   const title = document.querySelector("#project-name").value.trim();
-  // const needed_funding = document
-  //   .querySelector("#project-funding")
-  //   .value.trim();
+
   const content = document.querySelector("#project-desc").value.trim();
 
   if (title && content) {
@@ -63,4 +61,4 @@ document
 
 document.querySelector(".delete").addEventListener("click", delButtonHandler);
 
-// document.querySelector(".edit").addEventListener("click", edtButtonHandler);
+

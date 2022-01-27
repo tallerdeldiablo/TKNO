@@ -2,9 +2,7 @@ const editFormHandler = async (event) => {
   event.preventDefault();
 
   const title = document.querySelector("#project-name").value.trim();
-  // const needed_funding = document
-  //   .querySelector("#project-funding")
-  //   .value.trim();
+
   const content = document.querySelector("#project-desc").value.trim();
 
   if (title && content) {
@@ -39,7 +37,7 @@ const delButtonHandler = async (event) => {
     }
   }
 };
-//*--edtButtonHandler
+//*--editt-Button-Handler-function 
 const edtButtonHandler = async (event) => {
   if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");

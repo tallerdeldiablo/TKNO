@@ -4,7 +4,7 @@ const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
+    // Get all Post and JOIN with user data
     const postData = await Post.findAll({
       include: [
         {
@@ -27,6 +27,8 @@ router.get("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
+/*-----------------------**---------
+ *--------------------- *EDIT*---   */
 
 // Use withAuth middleware to prevent access to route
 router.get("/edit", withAuth, async (req, res) => {
@@ -220,12 +222,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 
-//----*--------
-
-//*----
-
-//*---------NEW-------
-//*--------
+// -----------------NEW-----------------
 
 // Use withAuth middleware to prevent access to route
 router.get("/new", withAuth, async (req, res) => {

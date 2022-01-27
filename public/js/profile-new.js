@@ -4,9 +4,7 @@ const newFormHandler = async (event) => {
   const title = document.querySelector("#project-name");
   const post_id = title.getAttribute("data-id");
   console.log(post_id);
-  // const needed_funding = document
-  //   .querySelector("#project-funding")
-  //   .value.trim();
+
   const content = document.querySelector("#comment-desc").value.trim();
 
   if (content) {

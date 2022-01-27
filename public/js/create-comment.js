@@ -1,10 +1,9 @@
 const newFormHandler = async (event) => {
   event.preventDefault();
-
+// Collect values from the  form
   const title = document.querySelector("#project-name").value.trim();
-  // const needed_funding = document
-  //   .querySelector("#project-funding")
-  //   .value.trim();
+
+// Collect values from the  form
   const content = document.querySelector("#project-desc").value.trim();
 
   if (title && content) {
@@ -24,6 +23,7 @@ const newFormHandler = async (event) => {
   }
 };
 
+//delete-comments-function
 const delButtonHandler = async (event) => {
   if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");
@@ -39,11 +39,11 @@ const delButtonHandler = async (event) => {
     }
   }
 };
-
+//event-->create-new
 document
   .querySelector(".new-project-form")
   .addEventListener("submit", newFormHandler);
-
+//event-->create-delete
 document
   .querySelector(".project-list")
   .addEventListener("click", delButtonHandler);
