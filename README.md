@@ -7,7 +7,7 @@ Tech-Blog
 The idea is to create a blog similar to Wordpress, where the user can log in and make a post
 and comments or read others' posts when not logged in.  
 
-## Table of Contents (Optional)
+## Table of Contents 
 
 
 
